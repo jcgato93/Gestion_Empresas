@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Nx_Gestion_EmpresasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Cliente_Id" />
+    </Key>
+    <Property Name="Cliente_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono_Fijo" Type="Int32" />
+    <Property Name="Telefono_Celular" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Re_Empresa_Cliente" Relationship="Self.FK_Re_Empresa_Cliente_Cliente" FromRole="Cliente" ToRole="Re_Empresa_Cliente" />
+  </EntityType>
+  <EntityType Name="Codigos_Actividad_Economica">
+    <Key>
+      <PropertyRef Name="Codigos_Actividad_Economica_Id" />
+    </Key>
+    <Property Name="Codigos_Actividad_Economica_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo_Actividad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Re_Empresa_CodigosActiEconomica" Relationship="Self.FK_Re_Empresa_CodigosActiEconomica_Codigos_Actividad_Economica" FromRole="Codigos_Actividad_Economica" ToRole="Re_Empresa_CodigosActiEconomica" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="Empresa_Id" />
+    </Key>
+    <Property Name="Empresa_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Razon_Social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Representante_Legal_Id" Type="Int32" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_Creacion" Type="DateTime" Precision="0" />
+    <Property Name="NIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono_Fijo" Type="Int32" />
+    <Property Name="Telefono_Celular" Type="Int32" />
+    <Property Name="RUT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono_Contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Representante_Legal" Relationship="Self.FK_Empresa_Representante_Legal" FromRole="Empresa" ToRole="Representante_Legal" />
+    <NavigationProperty Name="Informacion_Bancaria" Relationship="Self.FK_Informacion_Bancaria_Empresa" FromRole="Empresa" ToRole="Informacion_Bancaria" />
+    <NavigationProperty Name="Informacion_DIAN" Relationship="Self.FK_Informacion_DIAN_Empresa" FromRole="Empresa" ToRole="Informacion_DIAN" />
+    <NavigationProperty Name="Informacion_Industria_Comercio" Relationship="Self.FK_Informacion_Industria_Comercio_Empresa" FromRole="Empresa" ToRole="Informacion_Industria_Comercio" />
+    <NavigationProperty Name="Informacion_Operadores" Relationship="Self.FK_Informacion_Operadores_Empresa" FromRole="Empresa" ToRole="Informacion_Operadores" />
+    <NavigationProperty Name="Re_Empresa_Cliente" Relationship="Self.FK_Re_Empresa_Cliente_Empresa" FromRole="Empresa" ToRole="Re_Empresa_Cliente" />
+    <NavigationProperty Name="Re_Empresa_CodigosActiEconomica" Relationship="Self.FK_Re_Empresa_CodigosActiEconomica_Empresa" FromRole="Empresa" ToRole="Re_Empresa_CodigosActiEconomica" />
+    <NavigationProperty Name="Re_Empresa_EmpresaPresServicios" Relationship="Self.FK_Re_Empresa_EmpresaPresServicios_Empresa" FromRole="Empresa" ToRole="Re_Empresa_EmpresaPresServicios" />
+    <NavigationProperty Name="Re_Empresa_ServiciosMensualidad" Relationship="Self.FK_Re_Empresa_ServiciosMensualidad_Empresa" FromRole="Empresa" ToRole="Re_Empresa_ServiciosMensualidad" />
+    <NavigationProperty Name="Re_Empresa_ServiciosPorUsuario" Relationship="Self.FK_Re_Empresa_ServiciosPorUsuario_Empresa" FromRole="Empresa" ToRole="Re_Empresa_ServiciosPorUsuario" />
+    <NavigationProperty Name="Resolucion_Facturacion" Relationship="Self.FK_Resolucion_Facturacion_Empresa" FromRole="Empresa" ToRole="Resolucion_Facturacion" />
+  </EntityType>
+  <EntityType Name="Empresas_Prestadoras_Servicios">
+    <Key>
+      <PropertyRef Name="Empresas_Prestadoras_Servicios_Id" />
+    </Key>
+    <Property Name="Empresas_Prestadoras_Servicios_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono_Fijo" Type="Int32" />
+    <Property Name="Telefono_Celular" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Re_Empresa_EmpresaPresServicios" Relationship="Self.FK_Re_Empresa_EmpresaPresServicios_Empresas_Prestadoras_Servicios" FromRole="Empresas_Prestadoras_Servicios" ToRole="Re_Empresa_EmpresaPresServicios" />
+  </EntityType>
+  <EntityType Name="Informacion_Bancaria">
+    <Key>
+      <PropertyRef Name="Informacion_Bancaria_Id" />
+    </Key>
+    <Property Name="Informacion_Bancaria_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Entidad_Bancaria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_Cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Numero_Cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Informacion_Bancaria_Empresa" FromRole="Informacion_Bancaria" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Informacion_DIAN">
+    <Key>
+      <PropertyRef Name="Informacion_DIAN_Id" />
+    </Key>
+    <Property Name="Informacion_DIAN_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Login_DIAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Clave_DIAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Firma_Electronica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Informacion_DIAN_Empresa" FromRole="Informacion_DIAN" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Informacion_Industria_Comercio">
+    <Key>
+      <PropertyRef Name="Informacion_Industria_Comercio_Id" />
+    </Key>
+    <Property Name="Informacion_Industria_Comercio_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Login_Ind_Comercio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Clave_Ind_Comercio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Informacion_Industria_Comercio_Empresa" FromRole="Informacion_Industria_Comercio" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Informacion_Operadores">
+    <Key>
+      <PropertyRef Name="Informacion_Operadores_Id" />
+    </Key>
+    <Property Name="Informacion_Operadores_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Login_Operador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Clave_Operador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Informacion_Operadores_Empresa" FromRole="Informacion_Operadores" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Re_Empresa_Cliente">
+    <Key>
+      <PropertyRef Name="Re_Empresa_Cliente_Id" />
+    </Key>
+    <Property Name="Re_Empresa_Cliente_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Cliente_Id" Type="Int32" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Re_Empresa_Cliente_Cliente" FromRole="Re_Empresa_Cliente" ToRole="Cliente" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Re_Empresa_Cliente_Empresa" FromRole="Re_Empresa_Cliente" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Re_Empresa_CodigosActiEconomica">
+    <Key>
+      <PropertyRef Name="Re_Empresa_CodigosActiEconomica_Id" />
+    </Key>
+    <Property Name="Re_Empresa_CodigosActiEconomica_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Codigos_Actividad_Economica_Id" Type="Int32" />
+    <NavigationProperty Name="Codigos_Actividad_Economica" Relationship="Self.FK_Re_Empresa_CodigosActiEconomica_Codigos_Actividad_Economica" FromRole="Re_Empresa_CodigosActiEconomica" ToRole="Codigos_Actividad_Economica" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Re_Empresa_CodigosActiEconomica_Empresa" FromRole="Re_Empresa_CodigosActiEconomica" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Re_Empresa_EmpresaPresServicios">
+    <Key>
+      <PropertyRef Name="Re_Empresa_EmpresaPresServicios_Id" />
+    </Key>
+    <Property Name="Re_Empresa_EmpresaPresServicios_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Empresas_Prestadoras_Servicios_Id" Type="Int32" />
+    <Property Name="Fecha_Contrato" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_Vencimiento_Contrato" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Re_Empresa_EmpresaPresServicios_Empresa" FromRole="Re_Empresa_EmpresaPresServicios" ToRole="Empresa" />
+    <NavigationProperty Name="Empresas_Prestadoras_Servicios" Relationship="Self.FK_Re_Empresa_EmpresaPresServicios_Empresas_Prestadoras_Servicios" FromRole="Re_Empresa_EmpresaPresServicios" ToRole="Empresas_Prestadoras_Servicios" />
+  </EntityType>
+  <EntityType Name="Re_Empresa_ServiciosMensualidad">
+    <Key>
+      <PropertyRef Name="Re_Empresa_ServiciosMensualidad_Id" />
+    </Key>
+    <Property Name="Re_Empresa_ServiciosMensualidad_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Servicios_Mensualidad_Id" Type="Int32" />
+    <Property Name="Tarifa_Servicio" Type="Int32" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Re_Empresa_ServiciosMensualidad_Empresa" FromRole="Re_Empresa_ServiciosMensualidad" ToRole="Empresa" />
+    <NavigationProperty Name="Servicios_Mensualidad" Relationship="Self.FK_Re_Empresa_ServiciosMensualidad_Servicios_Mensualidad" FromRole="Re_Empresa_ServiciosMensualidad" ToRole="Servicios_Mensualidad" />
+  </EntityType>
+  <EntityType Name="Re_Empresa_ServiciosPorUsuario">
+    <Key>
+      <PropertyRef Name="Re_Empresa_ServiciosPorUsuarios_Id" />
+    </Key>
+    <Property Name="Re_Empresa_ServiciosPorUsuarios_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Servicios_Por_Usuario_Id" Type="Int32" />
+    <Property Name="Tarifa_Servicio" Type="Int32" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Re_Empresa_ServiciosPorUsuario_Empresa" FromRole="Re_Empresa_ServiciosPorUsuario" ToRole="Empresa" />
+    <NavigationProperty Name="Servicios_Por_Usuarios" Relationship="Self.FK_Re_Empresa_ServiciosPorUsuario_Servicios_Por_Usuarios" FromRole="Re_Empresa_ServiciosPorUsuario" ToRole="Servicios_Por_Usuarios" />
+  </EntityType>
+  <EntityType Name="Representante_Legal">
+    <Key>
+      <PropertyRef Name="Representante_Legal_Id" />
+    </Key>
+    <Property Name="Representante_Legal_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono_Fijo" Type="Int32" />
+    <Property Name="Telefono_Celular" Type="Int32" />
+    <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Empresa_Representante_Legal" FromRole="Representante_Legal" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Resolucion_Facturacion">
+    <Key>
+      <PropertyRef Name="Resolucion_Facturacion_Id" />
+    </Key>
+    <Property Name="Resolucion_Facturacion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa_Id" Type="Int32" />
+    <Property Name="Fecha_Inicio" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_Fin" Type="DateTime" Precision="0" />
+    <Property Name="Rango_Numeracion_Inicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rango_Numeracion_Fin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Resolucion_Facturacion_Empresa" FromRole="Resolucion_Facturacion" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Servicios_Mensualidad">
+    <Key>
+      <PropertyRef Name="Servicios_Mensualidad_Id" />
+    </Key>
+    <Property Name="Servicios_Mensualidad_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Re_Empresa_ServiciosMensualidad" Relationship="Self.FK_Re_Empresa_ServiciosMensualidad_Servicios_Mensualidad" FromRole="Servicios_Mensualidad" ToRole="Re_Empresa_ServiciosMensualidad" />
+  </EntityType>
+  <EntityType Name="Servicios_Por_Usuarios">
+    <Key>
+      <PropertyRef Name="Servicios_Por_Usuarios_Id" />
+    </Key>
+    <Property Name="Servicios_Por_Usuarios_Id" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Re_Empresa_ServiciosPorUsuario" Relationship="Self.FK_Re_Empresa_ServiciosPorUsuario_Servicios_Por_Usuarios" FromRole="Servicios_Por_Usuarios" ToRole="Re_Empresa_ServiciosPorUsuario" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Re_Empresa_Cliente_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_Cliente" Type="Self.Re_Empresa_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Cliente_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_Cliente">
+        <PropertyRef Name="Cliente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_CodigosActiEconomica_Codigos_Actividad_Economica">
+    <End Role="Codigos_Actividad_Economica" Type="Self.Codigos_Actividad_Economica" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_CodigosActiEconomica" Type="Self.Re_Empresa_CodigosActiEconomica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Codigos_Actividad_Economica">
+        <PropertyRef Name="Codigos_Actividad_Economica_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_CodigosActiEconomica">
+        <PropertyRef Name="Codigos_Actividad_Economica_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresa_Representante_Legal">
+    <End Role="Representante_Legal" Type="Self.Representante_Legal" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Representante_Legal">
+        <PropertyRef Name="Representante_Legal_Id" />
+      </Principal>
+      <Dependent Role="Empresa">
+        <PropertyRef Name="Representante_Legal_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Informacion_Bancaria_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Informacion_Bancaria" Type="Self.Informacion_Bancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Informacion_Bancaria">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Informacion_DIAN_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Informacion_DIAN" Type="Self.Informacion_DIAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Informacion_DIAN">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Informacion_Industria_Comercio_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Informacion_Industria_Comercio" Type="Self.Informacion_Industria_Comercio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Informacion_Industria_Comercio">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Informacion_Operadores_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Informacion_Operadores" Type="Self.Informacion_Operadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Informacion_Operadores">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_Cliente_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_Cliente" Type="Self.Re_Empresa_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_Cliente">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_CodigosActiEconomica_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_CodigosActiEconomica" Type="Self.Re_Empresa_CodigosActiEconomica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_CodigosActiEconomica">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_EmpresaPresServicios_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_EmpresaPresServicios" Type="Self.Re_Empresa_EmpresaPresServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_EmpresaPresServicios">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_ServiciosMensualidad_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_ServiciosMensualidad" Type="Self.Re_Empresa_ServiciosMensualidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_ServiciosMensualidad">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_ServiciosPorUsuario_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_ServiciosPorUsuario" Type="Self.Re_Empresa_ServiciosPorUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_ServiciosPorUsuario">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Resolucion_Facturacion_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Resolucion_Facturacion" Type="Self.Resolucion_Facturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Empresa_Id" />
+      </Principal>
+      <Dependent Role="Resolucion_Facturacion">
+        <PropertyRef Name="Empresa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_EmpresaPresServicios_Empresas_Prestadoras_Servicios">
+    <End Role="Empresas_Prestadoras_Servicios" Type="Self.Empresas_Prestadoras_Servicios" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_EmpresaPresServicios" Type="Self.Re_Empresa_EmpresaPresServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Prestadoras_Servicios">
+        <PropertyRef Name="Empresas_Prestadoras_Servicios_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_EmpresaPresServicios">
+        <PropertyRef Name="Empresas_Prestadoras_Servicios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_ServiciosMensualidad_Servicios_Mensualidad">
+    <End Role="Servicios_Mensualidad" Type="Self.Servicios_Mensualidad" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_ServiciosMensualidad" Type="Self.Re_Empresa_ServiciosMensualidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicios_Mensualidad">
+        <PropertyRef Name="Servicios_Mensualidad_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_ServiciosMensualidad">
+        <PropertyRef Name="Servicios_Mensualidad_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Re_Empresa_ServiciosPorUsuario_Servicios_Por_Usuarios">
+    <End Role="Servicios_Por_Usuarios" Type="Self.Servicios_Por_Usuarios" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Re_Empresa_ServiciosPorUsuario" Type="Self.Re_Empresa_ServiciosPorUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicios_Por_Usuarios">
+        <PropertyRef Name="Servicios_Por_Usuarios_Id" />
+      </Principal>
+      <Dependent Role="Re_Empresa_ServiciosPorUsuario">
+        <PropertyRef Name="Servicios_Por_Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Nx_Gestion_EmpresasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Codigos_Actividad_Economica" EntityType="Self.Codigos_Actividad_Economica" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+    <EntitySet Name="Empresas_Prestadoras_Servicios" EntityType="Self.Empresas_Prestadoras_Servicios" />
+    <EntitySet Name="Informacion_Bancaria" EntityType="Self.Informacion_Bancaria" />
+    <EntitySet Name="Informacion_DIAN" EntityType="Self.Informacion_DIAN" />
+    <EntitySet Name="Informacion_Industria_Comercio" EntityType="Self.Informacion_Industria_Comercio" />
+    <EntitySet Name="Informacion_Operadores" EntityType="Self.Informacion_Operadores" />
+    <EntitySet Name="Re_Empresa_Cliente" EntityType="Self.Re_Empresa_Cliente" />
+    <EntitySet Name="Re_Empresa_CodigosActiEconomica" EntityType="Self.Re_Empresa_CodigosActiEconomica" />
+    <EntitySet Name="Re_Empresa_EmpresaPresServicios" EntityType="Self.Re_Empresa_EmpresaPresServicios" />
+    <EntitySet Name="Re_Empresa_ServiciosMensualidad" EntityType="Self.Re_Empresa_ServiciosMensualidad" />
+    <EntitySet Name="Re_Empresa_ServiciosPorUsuario" EntityType="Self.Re_Empresa_ServiciosPorUsuario" />
+    <EntitySet Name="Representante_Legal" EntityType="Self.Representante_Legal" />
+    <EntitySet Name="Resolucion_Facturacion" EntityType="Self.Resolucion_Facturacion" />
+    <EntitySet Name="Servicios_Mensualidad" EntityType="Self.Servicios_Mensualidad" />
+    <EntitySet Name="Servicios_Por_Usuarios" EntityType="Self.Servicios_Por_Usuarios" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Re_Empresa_Cliente_Cliente" Association="Self.FK_Re_Empresa_Cliente_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Re_Empresa_Cliente" EntitySet="Re_Empresa_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_CodigosActiEconomica_Codigos_Actividad_Economica" Association="Self.FK_Re_Empresa_CodigosActiEconomica_Codigos_Actividad_Economica">
+      <End Role="Codigos_Actividad_Economica" EntitySet="Codigos_Actividad_Economica" />
+      <End Role="Re_Empresa_CodigosActiEconomica" EntitySet="Re_Empresa_CodigosActiEconomica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresa_Representante_Legal" Association="Self.FK_Empresa_Representante_Legal">
+      <End Role="Representante_Legal" EntitySet="Representante_Legal" />
+      <End Role="Empresa" EntitySet="Empresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Informacion_Bancaria_Empresa" Association="Self.FK_Informacion_Bancaria_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Informacion_Bancaria" EntitySet="Informacion_Bancaria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Informacion_DIAN_Empresa" Association="Self.FK_Informacion_DIAN_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Informacion_DIAN" EntitySet="Informacion_DIAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Informacion_Industria_Comercio_Empresa" Association="Self.FK_Informacion_Industria_Comercio_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Informacion_Industria_Comercio" EntitySet="Informacion_Industria_Comercio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Informacion_Operadores_Empresa" Association="Self.FK_Informacion_Operadores_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Informacion_Operadores" EntitySet="Informacion_Operadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_Cliente_Empresa" Association="Self.FK_Re_Empresa_Cliente_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Re_Empresa_Cliente" EntitySet="Re_Empresa_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_CodigosActiEconomica_Empresa" Association="Self.FK_Re_Empresa_CodigosActiEconomica_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Re_Empresa_CodigosActiEconomica" EntitySet="Re_Empresa_CodigosActiEconomica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_EmpresaPresServicios_Empresa" Association="Self.FK_Re_Empresa_EmpresaPresServicios_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Re_Empresa_EmpresaPresServicios" EntitySet="Re_Empresa_EmpresaPresServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_ServiciosMensualidad_Empresa" Association="Self.FK_Re_Empresa_ServiciosMensualidad_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Re_Empresa_ServiciosMensualidad" EntitySet="Re_Empresa_ServiciosMensualidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_ServiciosPorUsuario_Empresa" Association="Self.FK_Re_Empresa_ServiciosPorUsuario_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Re_Empresa_ServiciosPorUsuario" EntitySet="Re_Empresa_ServiciosPorUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Resolucion_Facturacion_Empresa" Association="Self.FK_Resolucion_Facturacion_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Resolucion_Facturacion" EntitySet="Resolucion_Facturacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_EmpresaPresServicios_Empresas_Prestadoras_Servicios" Association="Self.FK_Re_Empresa_EmpresaPresServicios_Empresas_Prestadoras_Servicios">
+      <End Role="Empresas_Prestadoras_Servicios" EntitySet="Empresas_Prestadoras_Servicios" />
+      <End Role="Re_Empresa_EmpresaPresServicios" EntitySet="Re_Empresa_EmpresaPresServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_ServiciosMensualidad_Servicios_Mensualidad" Association="Self.FK_Re_Empresa_ServiciosMensualidad_Servicios_Mensualidad">
+      <End Role="Servicios_Mensualidad" EntitySet="Servicios_Mensualidad" />
+      <End Role="Re_Empresa_ServiciosMensualidad" EntitySet="Re_Empresa_ServiciosMensualidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Re_Empresa_ServiciosPorUsuario_Servicios_Por_Usuarios" Association="Self.FK_Re_Empresa_ServiciosPorUsuario_Servicios_Por_Usuarios">
+      <End Role="Servicios_Por_Usuarios" EntitySet="Servicios_Por_Usuarios" />
+      <End Role="Re_Empresa_ServiciosPorUsuario" EntitySet="Re_Empresa_ServiciosPorUsuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

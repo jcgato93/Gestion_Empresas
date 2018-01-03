@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e5e016a77c494f33a564a355639f0a07" Name="Diagram1">
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Cliente" Width="1.5" PointX="6" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Codigos_Actividad_Economica" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Empresa" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Empresas_Prestadoras_Servicios" Width="1.5" PointX="6" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Informacion_Bancaria" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Informacion_DIAN" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Informacion_Industria_Comercio" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Informacion_Operadores" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Re_Empresa_Cliente" Width="1.5" PointX="8.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Re_Empresa_CodigosActiEconomica" Width="1.5" PointX="8.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Re_Empresa_EmpresaPresServicios" Width="1.5" PointX="8.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Re_Empresa_ServiciosMensualidad" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Re_Empresa_ServiciosPorUsuario" Width="1.5" PointX="11.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Representante_Legal" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Resolucion_Facturacion" Width="1.5" PointX="5.25" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Servicios_Mensualidad" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.Servicios_Por_Usuarios" Width="1.5" PointX="9" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nx_Gestion_EmpresasModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_Cliente_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_CodigosActiEconomica_Codigos_Actividad_Economica" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Empresa_Representante_Legal" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Informacion_Bancaria_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Informacion_DIAN_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Informacion_Industria_Comercio_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Informacion_Operadores_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_Cliente_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_CodigosActiEconomica_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_EmpresaPresServicios_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_ServiciosMensualidad_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_ServiciosPorUsuario_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Resolucion_Facturacion_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_EmpresaPresServicios_Empresas_Prestadoras_Servicios" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_ServiciosMensualidad_Servicios_Mensualidad" ManuallyRouted="false" />
+        <AssociationConnector Association="Nx_Gestion_EmpresasModel.FK_Re_Empresa_ServiciosPorUsuario_Servicios_Por_Usuarios" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
